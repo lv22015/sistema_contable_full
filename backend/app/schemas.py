@@ -1,6 +1,7 @@
 from pydantic import BaseModel
 from typing import Optional, List
 from datetime import date, datetime
+from datetime import datetime
 
 
 # ----------------- USUARIOS -----------------
@@ -65,6 +66,28 @@ class PartidaOut(BaseModel):
     descripcion: str
     tipo: str
     detalles: List[PartidaDetalleCreate]
+
+    class Config:
+        orm_mode = True
+
+
+# ----------------- MANUAL DE CUENTAS -----------------
+
+class ManualCuentaCreate(BaseModel):
+    id_cuenta: int
+    descripcion: str
+    ejemplos: Optional[str] = None
+    id_usuario_crea: Optional[int] = None
+
+
+class ManualCuentaOut(BaseModel):
+    id_manual: int
+    id_cuenta: int
+    cuenta_nombre: Optional[str] = None
+    descripcion: str
+    ejemplos: Optional[str] = None
+    fecha_creacion: Optional[datetime] = None
+    id_usuario_crea: Optional[int] = None
 
     class Config:
         orm_mode = True

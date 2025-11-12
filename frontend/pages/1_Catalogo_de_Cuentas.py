@@ -3,7 +3,7 @@ import requests
 import os
 
 # ==============================
-# 🔧 CONFIGURACIÓN DEL BACKEND
+# CONFIGURACIÓN DEL BACKEND
 # ==============================
 BACKEND_URL = os.getenv("BACKEND_URL", "http://localhost:8000")
 

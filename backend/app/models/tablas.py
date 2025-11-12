@@ -1,5 +1,6 @@
-from sqlalchemy import Column, Integer, String, Text, Boolean, Date, DateTime, Numeric, ForeignKey
+from sqlalchemy import Column, Integer, String, Text, Boolean, Date, DateTime, Numeric, ForeignKey, TIMESTAMP
 from sqlalchemy.sql import func
+from sqlalchemy.orm import relationship
 from ..utils.conexion_db import Base
 
 
@@ -44,3 +45,16 @@ class PartidaDetalle(Base):
     debe = Column(Numeric(12, 2), default=0)
     haber = Column(Numeric(12, 2), default=0)
     descripcion = Column(Text)
+
+class ManualCuenta(Base):
+    __tablename__ = "manual_cuentas"
+
+    id_manual = Column(Integer, primary_key=True, index=True)
+    id_cuenta = Column(Integer, ForeignKey("cuentas.id_cuenta", ondelete="CASCADE"), nullable=False)
+    descripcion = Column(Text, nullable=False)
+    ejemplos = Column(Text)
+    fecha_creacion = Column(TIMESTAMP, server_default=func.now())
+    id_usuario_crea = Column(Integer, ForeignKey("usuarios.id_usuario"))
+
+    cuenta = relationship("Cuenta")
+
