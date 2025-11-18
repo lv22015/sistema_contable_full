@@ -6,7 +6,7 @@ psycopg2-binary
 pydantic
 python-dotenv
 alembic
-passlib[bcrypt]
+#passlib[bcrypt]
 
 
 # Framework y servidor
@@ -35,6 +35,7 @@ python-dotenv==1.0.0
 # Logging y utilidades
 python-jose[cryptography]==3.3.0
 passlib[bcrypt]==1.7.4
+bcrypt==3.2.2
 
 # Validación y utilidades adicionales
 email-validator==2.0.0

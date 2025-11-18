@@ -1,10 +1,9 @@
-
 import streamlit as st
-
 from utils.auth import require_login
 from utils.sidebar import render_sidebar
 
 require_login()
 render_sidebar()
-st.title("📘 Partidas de Ajuste")
-st.write("Página: Partidas de Ajuste. Implementa aquí los formularios y llamadas a la API.")
+
+st.title("📊 Panel Principal")
+st.write("Bienvenido al sistema contable")

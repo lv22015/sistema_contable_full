@@ -1,11 +1,16 @@
 import streamlit as st
 import requests
 import os
+from utils.auth import require_login
+from utils.sidebar import render_sidebar
 
 # ==============================
 # CONFIGURACIÓN DEL BACKEND
 # ==============================
 BACKEND_URL = os.getenv("BACKEND_URL", "http://localhost:8000")
+
+require_login()
+render_sidebar()
 
 st.set_page_config(page_title="Catálogo de Cuentas", layout="wide")
 st.title("Catálogo de Cuentas Contables")

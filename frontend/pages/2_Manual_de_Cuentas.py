@@ -2,8 +2,13 @@ import streamlit as st
 import pandas as pd
 import requests
 import os
+from utils.auth import require_login
+from utils.sidebar import render_sidebar
 
 BACKEND_URL = os.getenv("BACKEND_URL", "http://localhost:8000")
+
+require_login()
+render_sidebar()
 
 st.set_page_config(page_title="Manual de Cuentas", layout="wide")
 st.title("Manual de Cuentas Contables")

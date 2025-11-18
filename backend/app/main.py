@@ -1,7 +1,8 @@
 
 from fastapi import FastAPI
 from .utils.conexion_db import engine, Base
-from .controllers import usuarios_controller, cuentas_controller, partidas_controller, manual_cuentas_controller
+from .controllers import usuarios_controller, cuentas_controller, partidas_controller, manual_cuentas_controller, \
+    panel_controller
 
 
 def create_app():
@@ -12,6 +13,8 @@ def create_app():
     app.include_router(cuentas_controller.router)
     app.include_router(partidas_controller.router)
     app.include_router(manual_cuentas_controller.router)
+    app.include_router(panel_controller.router)
+
 
     @app.on_event("startup")
     def on_startup():

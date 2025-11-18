@@ -8,7 +8,7 @@ class Usuario(Base):
     __tablename__ = "usuarios"
     id_usuario = Column(Integer, primary_key=True, index=True)
     username = Column(String(50), unique=True, nullable=False)
-    password_hash = Column(Text, nullable=False)
+    password_hash = Column(String, nullable=False)
     nombre_completo = Column(String(100))
     rol = Column(String(50))
     activo = Column(Boolean, default=True)
@@ -57,4 +57,6 @@ class ManualCuenta(Base):
     id_usuario_crea = Column(Integer, ForeignKey("usuarios.id_usuario"))
 
     cuenta = relationship("Cuenta")
+
+
 

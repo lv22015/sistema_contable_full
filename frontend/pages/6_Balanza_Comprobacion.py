@@ -1,4 +1,10 @@
 
 import streamlit as st
+
+from utils.auth import require_login
+from utils.sidebar import render_sidebar
+
+require_login()
+render_sidebar()
 st.title("📘 Balanza de Comprobación")
 st.write("Página: Balanza de Comprobación. Implementa aquí los formularios y llamadas a la API.")

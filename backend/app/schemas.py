@@ -1,27 +1,32 @@
+from typing import  List
+from datetime import date
+
+
 from pydantic import BaseModel
-from typing import Optional, List
-from datetime import date, datetime
+from typing import Optional
 from datetime import datetime
 
+# ---------USUARIOS--------
+class UsuarioCreate(BaseModel):
+    username: str
+    password: str
+    nombre_completo: Optional[str] = None
+    rol: Optional[str] = None
 
-# ----------------- USUARIOS -----------------
-class UsuarioBase(BaseModel):
+class UsuarioResponse(BaseModel):
+    id_usuario: int
     username: str
     nombre_completo: Optional[str] = None
     rol: Optional[str] = None
-    activo: Optional[bool] = True
-
-
-class UsuarioCreate(UsuarioBase):
-    password: str
-
-
-class UsuarioOut(UsuarioBase):
-    id_usuario: int
-    fecha_creacion: Optional[datetime] = None
+    activo: bool
 
     class Config:
-        orm_mode = True
+        from_attributes = True
+
+# ---------LOGIN----------
+class LoginRequest(BaseModel):
+    username: str
+    password: str
 
 
 # ----------------- CUENTAS -----------------
