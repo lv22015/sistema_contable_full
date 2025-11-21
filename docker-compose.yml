@@ -19,7 +19,7 @@ services:
     networks:
       - contabilidad_net
     ports:
-      - "5432:5432"
+      - "5440:5432"
 
   pgadmin:
     image: dpage/pgadmin4:8
