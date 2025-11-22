@@ -4,12 +4,15 @@ from utils.sidebar import render_sidebar
 
 st.set_page_config(page_title="Sistema Contable", layout="wide")
 
-# Si no hay login, mandar al login directamente
+# Mostrar sidebar en la aplicación principal
+render_sidebar()
+
+# Si no hay login, mostrar enlace al login y detener ejecución
 if not st.session_state.get("logged", False):
-    st.switch_page("pages/login.py")
+    st.info("No ha iniciado sesión.")
+    # Enlace a la página de login (archivo en pages/login.py)
+    st.page_link("pages/login.py", label="🔐 Ir a Inicio de Sesión")
+    st.stop()
 
-# Mostrar sidebar
-#render_sidebar()
-
-# Redirección al panel
-st.switch_page("pages/panel.py")
+st.title("Sistema Contable")
+st.write("Seleccione una página desde el menú lateral.")

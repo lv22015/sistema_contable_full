@@ -42,3 +42,14 @@ def ver_partida(id: int, db: Session = Depends(get_db)):
     detalles = db.query(PartidaDetalle).filter(PartidaDetalle.id_partida == p.id_partida).all()
     detalles_out = [PartidaDetalleCreate(id_cuenta=d.id_cuenta, debe=float(d.debe or 0), haber=float(d.haber or 0), descripcion=d.descripcion) for d in detalles]
     return PartidaOut(id_partida=p.id_partida, fecha=p.fecha, descripcion=p.descripcion, tipo=p.tipo, detalles=detalles_out)
+
+@router.delete("/{id}")
+def eliminar_partida(id: int, db: Session = Depends(get_db)):
+    p = db.query(Partida).filter(Partida.id_partida == id).first()
+    if not p:
+        raise HTTPException(status_code=404, detail="Partida no encontrada")
+    # Eliminar detalles primero (por la FK con cascade)
+    db.query(PartidaDetalle).filter(PartidaDetalle.id_partida == id).delete()
+    db.delete(p)
+    db.commit()
+    return {"message": f"Partida {id} eliminada exitosamente"}
