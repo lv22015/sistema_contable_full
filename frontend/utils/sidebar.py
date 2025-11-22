@@ -18,7 +18,7 @@ def render_sidebar():
         st.page_link("pages/1_Catalogo_de_Cuentas.py", label="📘 Catálogo de Cuentas")
         st.page_link("pages/2_Manual_de_Cuentas.py", label="📗 Manual de Cuentas")
         st.page_link("pages/3_Partidas_Diario.py", label="📙 Partidas Diario")
-        st.page_link("pages/4_Mayorizacion.py", label="📘 Mayorización")
+        st.page_link("pages/libro_mayor.py", label="📘 Libro Mayor")
         st.page_link("pages/5_Partidas_Ajuste.py", label="📗 Partidas Ajuste")
         st.page_link("pages/6_Balanza_Comprobacion.py", label="📘 Balanza de Comprobación")
         st.page_link("pages/7_Balance_Inicial.py", label="📙 Balance Inicial")
