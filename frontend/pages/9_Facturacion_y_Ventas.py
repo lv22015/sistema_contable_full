@@ -36,15 +36,15 @@ API_URL = os.getenv("BACKEND_URL", "http://backend:8000")
 CLIENTES_DB = [
     "Consumidor Final",
     "Empresa A S.A. de C.V.",
-    "Juan Pérez (Cliente Recurrente)",
-    "Distribuidora El Sol"
+    "Cristian Leon (Cliente Recurrente)",
+    "Ander Alvarado",
 ]
 
 PRODUCTOS_DB = [
-    {"id": 1, "nombre": "Servicio de Consultoría (Hora)", "precio": 50.00},
-    {"id": 2, "nombre": "Licencia de Software Anual", "precio": 1200.00},
-    {"id": 3, "nombre": "Mantenimiento Preventivo", "precio": 150.00},
-    {"id": 4, "nombre": "Venta de Hardware (Laptop)", "precio": 850.00},
+    {"id": 1, "nombre": "Venta de producto", "precio": 50.00},
+    {"id": 2, "nombre": "Arrendamiento", "precio": 1200.00},
+    {"id": 3, "nombre": "Mantenimiento del local", "precio": 150.00},
+    {"id": 4, "nombre": "Otros", "precio": 850.00},
 ]
 
 # ==========================================
